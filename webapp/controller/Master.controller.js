@@ -285,9 +285,11 @@ sap.ui.define([
 			 */
 			_showDetail : function (oItem) {
 				var bReplace = !Device.system.phone;
-				this.getRouter().navTo("object", {
-					objectId : oItem.getBindingContext().getProperty("Document")
-				}, bReplace);
+				var oLine = {
+					objectId : oItem.getBindingContext().getProperty("Document"),
+					itemId : oItem.getBindingContext().getProperty("Buzei") 
+				};
+				this.getRouter().navTo("object", oLine, bReplace);
 			},
 
 			/**

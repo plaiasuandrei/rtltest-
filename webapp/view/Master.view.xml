@@ -1,113 +1,49 @@
-<mvc:View
-	controllerName="rtl.controller.Master"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	xmlns="sap.m"
-	xmlns:semantic="sap.m.semantic">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="rtl.controller.Master">
 
-	<semantic:MasterPage
-		id="page"
-		title="{masterView>/title}"
-		navButtonPress="onNavBack"
-		showNavButton="true">
+	<semantic:MasterPage xmlns:semantic="sap.m.semantic" title="{masterView>/title}" id="page" navButtonPress="onNavBack" showNavButton="true">
 		<semantic:subHeader>
-			<Bar id="headerBar">
+			<Bar xmlns="sap.m" id="headerBar">
 				<contentMiddle>
-					<SearchField
-						id="searchField"
-						showRefreshButton="{= !${device>/support/touch} }"
-						tooltip="{i18n>masterSearchTooltip}"
-						width="100%"
-						search="onSearch">
+					<SearchField id="searchField" width="100%" tooltip="{i18n>masterSearchTooltip}" showRefreshButton="{= !${device>/support/touch} }" search="onSearch">
 					</SearchField>
 				</contentMiddle>
 			</Bar>
 		</semantic:subHeader>
 
 		<semantic:content>
-			<PullToRefresh
-				id="pullToRefresh"
-				visible="{device>/support/touch}"
-				refresh="onRefresh" />
+			<PullToRefresh xmlns="sap.m" id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh" />
 			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
-			<List
-				id="list"
-				items="{
-					path: '/ocrInvoiceSet',
-					sorter: {
-						path: 'RdVendorName',
-						descending: false
-						},
-					groupHeaderFactory: '.createGroupHeader'
-				}"
-				busyIndicatorDelay="{masterView>/delay}"
-				noDataText="{masterView>/noDataText}"
-				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
-				growing="true"
-				growingScrollToLoad="true"
-				updateFinished="onUpdateFinished"
-				selectionChange="onSelectionChange">
+			<List xmlns="sap.m" id="list" items="{      path: '/ocrInvoiceSet',      sorter: {       path: 'RdVendorName',       descending: false       },      groupHeaderFactory: '.createGroupHeader'     }" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" selectionChange="onSelectionChange" busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
 				<infoToolbar>
-					<Toolbar
-						active="true"
-						id="filterBar"
-						visible="{masterView>/isFilterBarVisible}"
-						press="onOpenViewSettings">
-						<Title
-							id="filterBarLabel"
-							text="{masterView>/filterBarLabel}" />
+					<Toolbar id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings" active="true">
+						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}" />
 					</Toolbar>
 				</infoToolbar>
 				<items>
-					<ObjectListItem
-						type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
-						press="onSelectionChange"
-						title="{RdVendorName}"
-						number="{
-							path: 'Wrbtr',
-							formatter: '.formatter.currencyValue'
-						}"
-						numberUnit="{Waers}">
+					<ObjectListItem title="{RdVendorName}" type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" number="{        path: 'Wrbtr',        formatter: '.formatter.currencyValue'       }" numberUnit="{Waers}">
+					<attributes>
+					    <ObjectAttribute id="__attribute8" text="{Sgtxt}" active="false" />
+					</attributes>
 					</ObjectListItem>
 				</items>
 			</List>
 		</semantic:content>
 
 		<semantic:sort>
-			<semantic:SortSelect
-				id="sort"
-				selectedKey="{masterView>/sortBy}"
-				change="onSort">
-				<core:Item
-					id="masterSort1"
-					key="RdVendorName"
-					text="{i18n>masterSort1}"/>
-				<core:Item
-					id="masterSort2"
-					key="Wrbtr"
-					text="{i18n>masterSort2}"/>
+			<semantic:SortSelect id="sort" selectedKey="{masterView>/sortBy}" change="onSort">
+				<core:Item xmlns:core="sap.ui.core" id="masterSort1" text="{i18n>masterSort1}" key="RdVendorName" />
+				<core:Item xmlns:core="sap.ui.core" id="masterSort2" text="{i18n>masterSort2}" key="Wrbtr" />
 			</semantic:SortSelect>
 		</semantic:sort>
 
 		<semantic:filter>
-			<semantic:FilterAction
-				id="filter"
-				press="onOpenViewSettings" />
+			<semantic:FilterAction id="filter" press="onOpenViewSettings" />
 		</semantic:filter>
 
 		<semantic:group>
-			<semantic:GroupSelect
-				id="group"
-				selectedKey="{masterView>/groupBy}"
-				change="onGroup">
-				<core:Item
-					id="masterGroupNone"
-					key="None"
-					text="{i18n>masterGroupNone}"/>
-				<core:Item
-					id="masterGroup1"
-					key="Wrbtr"
-					text="{i18n>masterGroup1}"/>
+			<semantic:GroupSelect id="group" selectedKey="{masterView>/groupBy}" change="onGroup">
+				<core:Item xmlns:core="sap.ui.core" id="masterGroupNone" text="{i18n>masterGroupNone}" key="None" />
+				<core:Item xmlns:core="sap.ui.core" id="masterGroup1" text="{i18n>masterGroup1}" key="Wrbtr" />
 			</semantic:GroupSelect>
 		</semantic:group>
 

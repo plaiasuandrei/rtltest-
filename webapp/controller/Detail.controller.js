@@ -84,9 +84,11 @@ sap.ui.define([
 			 */
 			_onObjectMatched : function (oEvent) {
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
+				var sItemId =  oEvent.getParameter("arguments").itemId;
 				this.getModel().metadataLoaded().then( function() {
-					var sObjectPath = this.getModel().createKey("ocrInvoiceHSet", {
-						Document :  sObjectId
+					var sObjectPath = this.getModel().createKey("ocrInvoiceLSet", {
+						Document :  sObjectId,
+						Buzei	: sItemId
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));

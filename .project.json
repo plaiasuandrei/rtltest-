@@ -28,7 +28,7 @@
       "entitySet": "UNBINDKEY"
     },
     "/webapp/view/Master.view.xml": {
-      "entitySet": "ocrInvoiceHSet"
+      "entitySet": "ocrInvoiceSet"
     },
     "/webapp/view/Detail.view.xml": {
       "entitySet": "ocrInvoiceHSet"
