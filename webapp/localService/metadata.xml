@@ -1,0 +1,92 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+            xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:lang="fr"
+            xmlns:sap="http://www.sap.com/Protocols/SAPData" sap:schema-version="1" Namespace="ZZOCR_INOICE_ALLOCATION_SRV">
+            <EntityType sap:content-version="1" Name="ocrInvoice">
+                <Key>
+                    <PropertyRef Name="Document" />
+                </Key>
+                <Property Name="Document" sap:label="Document" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="Bukrs" sap:label="Société" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="Wrbtr" sap:label="Montant" sap:sortable="false" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.Decimal" sap:unit="Waers" Scale="3" Precision="14" />
+                <Property Name="Waers" sap:label="Devise" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="5" Nullable="false" Type="Edm.String" sap:semantics="currency-code" />
+                <Property Name="Sgtxt" sap:label="Texte" sap:updatable="false" sap:creatable="false" MaxLength="50" Nullable="false" Type="Edm.String" />
+                <Property Name="RdVendor" sap:label="OCR: Fourn." sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="20" Nullable="false" Type="Edm.String" />
+                <Property Name="RdVendorName" sap:label="OCR: Nom Fourn." sap:updatable="false" sap:creatable="false" MaxLength="50" Nullable="false" Type="Edm.String" />
+                <Property Name="Ebeln" sap:label="Document achat" sap:filterable="false" sap:sortable="false" sap:creatable="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="Hkont" sap:label="Cpte gén." sap:filterable="false" sap:sortable="false" sap:creatable="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="Kostl" sap:label="Centre de coûts" sap:filterable="false" sap:sortable="false" sap:creatable="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="PsPosid" sap:label="Elément d'OTP" sap:filterable="false" sap:sortable="false" sap:creatable="false" MaxLength="24" Nullable="false" Type="Edm.String" />
+            </EntityType>
+            <EntityType sap:content-version="1" Name="searchFields">
+                <Key>
+                    <PropertyRef Name="searchFieldPO" />
+                </Key>
+                <Property Name="searchFieldPO" sap:label="Document achat" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+            </EntityType>
+            <EntityType sap:content-version="1" Name="ocrInvoiceH">
+                <Key>
+                    <PropertyRef Name="Document" />
+                </Key>
+                <Property Name="Document" sap:label="Document" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="Status" sap:label="Statut" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="2" Nullable="false" Type="Edm.String" />
+                <Property Name="Bukrs" sap:label="Société" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="4" Nullable="false" Type="Edm.String" />
+                <Property Name="Wrbtr" sap:label="Montant" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.Decimal" sap:unit="Waers" Scale="3" Precision="14" />
+                <Property Name="Waers" sap:label="Devise" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="5" Nullable="false" Type="Edm.String" sap:semantics="currency-code" />
+                <Property Name="Sgtxt" sap:label="Texte" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="50" Nullable="false" Type="Edm.String" />
+                <Property Name="RdVendor" sap:label="OCR: Fourn." sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="20" Nullable="false" Type="Edm.String" />
+                <Property Name="RdVendorName" sap:label="OCR: Nom Fourn." sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="50" Nullable="false" Type="Edm.String" />
+                <Property Name="RdPoNumber" sap:label="OCR: No.BdC" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="20" Nullable="false" Type="Edm.String" />
+                <NavigationProperty Name="ocrInvoiceLSet" ToRole="ToRole_ocrInvoiceHocrInvoiceL" FromRole="FromRole_ocrInvoiceHocrInvoiceL" Relationship="ZZOCR_INOICE_ALLOCATION_SRV.ocrInvoiceHocrInvoiceL" />
+            </EntityType>
+            <EntityType sap:content-version="1" Name="ocrInvoiceL">
+                <Key>
+                    <PropertyRef Name="Document" />
+                    <PropertyRef Name="Buzei" />
+                </Key>
+                <Property Name="Document" sap:label="Document" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="Buzei" sap:label="Poste" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="3" Nullable="false" Type="Edm.String" />
+                <Property Name="Status" sap:label="Statut" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="2" Nullable="false" Type="Edm.String" />
+                <Property Name="Ebeln" sap:label="Document achat" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="Ebelp" sap:label="Poste" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="5" Nullable="false" Type="Edm.String" />
+                <Property Name="Sgtxt" sap:label="Texte" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="50" Nullable="false" Type="Edm.String" />
+                <Property Name="Wrbtr" sap:label="Montant" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" Nullable="false" Type="Edm.Decimal" sap:unit="Waers" Scale="3" Precision="14" />
+                <Property Name="Kostl" sap:label="Centre de coûts" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="PsPosid" sap:label="Elément d'OTP" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="24" Nullable="false" Type="Edm.String" />
+                <Property Name="Txz01" sap:label="Désignation" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="40" Nullable="false" Type="Edm.String" />
+                <Property Name="Waers" sap:label="Devise" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" MaxLength="5" Nullable="false" Type="Edm.String" sap:semantics="currency-code" />
+                <NavigationProperty Name="ocrInvoiceH" ToRole="FromRole_ocrInvoiceHocrInvoiceL" FromRole="ToRole_ocrInvoiceHocrInvoiceL" Relationship="ZZOCR_INOICE_ALLOCATION_SRV.ocrInvoiceHocrInvoiceL" />
+            </EntityType>
+            <Association sap:content-version="1" Name="ocrInvoiceHocrInvoiceL">
+                <End Type="ZZOCR_INOICE_ALLOCATION_SRV.ocrInvoiceH" Role="FromRole_ocrInvoiceHocrInvoiceL" Multiplicity="1" />
+                <End Type="ZZOCR_INOICE_ALLOCATION_SRV.ocrInvoiceL" Role="ToRole_ocrInvoiceHocrInvoiceL" Multiplicity="*" />
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ocrInvoiceHocrInvoiceL">
+                        <PropertyRef Name="Document" />
+                    </Principal>
+                    <Dependent Role="ToRole_ocrInvoiceHocrInvoiceL">
+                        <PropertyRef Name="Document" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZZOCR_INOICE_ALLOCATION_SRV_Entities" sap:supported-formats="atom json" m:IsDefaultEntityContainer="true">
+                <EntitySet sap:content-version="1" Name="ocrInvoiceSet" sap:creatable="false" sap:searchable="true" sap:deletable="false" EntityType="ZZOCR_INOICE_ALLOCATION_SRV.ocrInvoice" />
+                <EntitySet sap:content-version="1" Name="searchFieldsSet" sap:updatable="false" sap:creatable="false" sap:searchable="true" sap:deletable="false" EntityType="ZZOCR_INOICE_ALLOCATION_SRV.searchFields" sap:pageable="false" />
+                <EntitySet sap:content-version="1" Name="ocrInvoiceHSet" sap:updatable="false" sap:creatable="false" sap:searchable="true" sap:deletable="false" EntityType="ZZOCR_INOICE_ALLOCATION_SRV.ocrInvoiceH" />
+                <EntitySet sap:content-version="1" Name="ocrInvoiceLSet" sap:creatable="false" sap:searchable="true" sap:deletable="false" EntityType="ZZOCR_INOICE_ALLOCATION_SRV.ocrInvoiceL" />
+                <AssociationSet Name="ocrInvoiceHocrInvoiceLSet" updatable="false" creatable="false" deletable="false" Association="ZZOCR_INOICE_ALLOCATION_SRV.ocrInvoiceHocrInvoiceL">
+                    <End Role="FromRole_ocrInvoiceHocrInvoiceL" EntitySet="ocrInvoiceHSet" />
+                    <End Role="ToRole_ocrInvoiceHocrInvoiceL" EntitySet="ocrInvoiceLSet" />
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" href="./SAP/ZZOCR_INOICE_ALLOCATION_Srv/$metadata" rel="self" />
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" href="./SAP/ZZOCR_INOICE_ALLOCATION_Srv/$metadata" rel="latest-version" />
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
