@@ -270,7 +270,9 @@ sap.ui.define([
 							return;
 						}
 						var sObjectId = mParams.firstListitem.getBindingContext().getProperty("Document");
-						this.getRouter().navTo("object", {objectId : sObjectId}, true);
+						var sItemId   = mParams.firstListitem.getBindingContext().getProperty("Buzei");
+						
+						this.getRouter().navTo("object", {objectId : sObjectId, itemId : sItemId }, true);
 					}.bind(this),
 					function (mParams) {
 						if (mParams.error) {

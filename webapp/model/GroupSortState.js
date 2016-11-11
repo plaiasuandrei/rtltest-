@@ -36,8 +36,12 @@ sap.ui.define([
 				// Grouping only works if the list is primary sorted by the grouping - the first sorten contains a grouper function
 				this._oViewModel.setProperty("/groupBy", "None");
 			}
-
+			if (sKey === "None") {
+				return [];
+			}
+			else {
 			return [new Sorter(sKey, false)];
+			}
 		},
 
 		/**
