@@ -1,6 +1,6 @@
 {
 	"routes": [{
-		"path": "/webapp/resources",
+		"path": "/resources",
 		"target": {
 			"type": "service",
 			"name": "sapui5",
@@ -8,7 +8,7 @@
 		},
 		"description": "SAPUI5 Resources"
 	}, {
-		"path": "/webapp/test-resources",
+		"path": "/test-resources",
 		"target": {
 			"type": "service",
 			"name": "sapui5",
@@ -38,5 +38,17 @@
 			"name": "ODATA"
 		},
 		"description": "ODATA"
+	}],
+	"cacheControl": [{
+		"directive": "private",
+		"maxAge": 0,
+		"path": "**.html"
+	}, {
+		"directive": "private",
+		"maxAge": 0,
+		"path": "sap-ui-cachebuster-info.json"
+	}, {
+		"directive": "public",
+		"maxAge": 31536000
 	}]
 }
