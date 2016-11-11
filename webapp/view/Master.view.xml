@@ -1,50 +1,92 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="rtl.controller.Master">
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/plaiasuandrei/rtltest-.git
 	<semantic:MasterPage xmlns:semantic="sap.m.semantic" title="{masterView>/title}" id="page" navButtonPress="onNavBack" showNavButton="true">
 		<semantic:subHeader>
 			<Bar xmlns="sap.m" id="headerBar">
 				<contentMiddle>
+<<<<<<< HEAD
 					<SearchField id="searchField" width="100%" tooltip="{i18n>masterSearchTooltip}" showRefreshButton="{= !${device>/support/touch} }"
 						search="onSearch" liveChange="onSearch"/>
+=======
+					<SearchField id="searchField" width="100%" tooltip="{i18n>masterSearchTooltip}" showRefreshButton="{= !${device>/support/touch} }" search="onSearch">
+					</SearchField>
+>>>>>>> branch 'master' of https://github.com/plaiasuandrei/rtltest-.git
 				</contentMiddle>
 			</Bar>
 		</semantic:subHeader>
 		<semantic:content>
+<<<<<<< HEAD
 			<PullToRefresh xmlns="sap.m" id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
+=======
+			<PullToRefresh xmlns="sap.m" id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh" />
+>>>>>>> branch 'master' of https://github.com/plaiasuandrei/rtltest-.git
 			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
+<<<<<<< HEAD
 			<!-- //sorter: { path: 'RdVendorName', descending: false }, -->
 			<List xmlns="sap.m" id="list" items="{ path: '/ocrInvoiceSet', groupHeaderFactory: '.createGroupHeader' }"
 				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" selectionChange="onSelectionChange"
 				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" growing="true" growingScrollToLoad="true"
 				updateFinished="onUpdateFinished">
+=======
+			<List xmlns="sap.m" id="list" items="{      path: '/ocrInvoiceSet',      sorter: {       path: 'RdVendorName',       descending: false       },      groupHeaderFactory: '.createGroupHeader'     }" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" selectionChange="onSelectionChange" busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+>>>>>>> branch 'master' of https://github.com/plaiasuandrei/rtltest-.git
 				<infoToolbar>
 					<Toolbar id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings" active="true">
+<<<<<<< HEAD
 						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}"/>
+=======
+						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}" />
+>>>>>>> branch 'master' of https://github.com/plaiasuandrei/rtltest-.git
 					</Toolbar>
 				</infoToolbar>
 				<items>
+<<<<<<< HEAD
 					<ObjectListItem title="{RdVendorName}" type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange"
 						number="{ path: 'Wrbtr', formatter: '.formatter.currencyValue' }" numberUnit="{Waers}">
 						<attributes>
 							<ObjectAttribute id="__attribute8" text="{Sgtxt}" active="false"/>
 						</attributes>
+=======
+					<ObjectListItem title="{RdVendorName}" type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" number="{        path: 'Wrbtr',        formatter: '.formatter.currencyValue'       }" numberUnit="{Waers}">
+					<attributes>
+					    <ObjectAttribute id="__attribute8" text="{Sgtxt}" active="false" />
+					</attributes>
+>>>>>>> branch 'master' of https://github.com/plaiasuandrei/rtltest-.git
 					</ObjectListItem>
 				</items>
 			</List>
 		</semantic:content>
 		<semantic:sort>
 			<semantic:SortSelect id="sort" selectedKey="{masterView>/sortBy}" change="onSort">
+<<<<<<< HEAD
 				<core:Item xmlns:core="sap.ui.core" id="masterSort1" text="{i18n>masterSort1}" key="RdVendorName"/>
 				<core:Item xmlns:core="sap.ui.core" id="masterSort2" text="{i18n>masterSort2}" key="Wrbtr"/>
 				<core:Item xmlns:core="sap.ui.core" id="masterSort3" text="{i18n>masterSort3}" key="None"/>
+=======
+				<core:Item xmlns:core="sap.ui.core" id="masterSort1" text="{i18n>masterSort1}" key="RdVendorName" />
+				<core:Item xmlns:core="sap.ui.core" id="masterSort2" text="{i18n>masterSort2}" key="Wrbtr" />
+>>>>>>> branch 'master' of https://github.com/plaiasuandrei/rtltest-.git
 			</semantic:SortSelect>
 		</semantic:sort>
 		<semantic:filter>
+<<<<<<< HEAD
 			<semantic:FilterAction id="filter" press="onOpenViewSettings"/>
+=======
+			<semantic:FilterAction id="filter" press="onOpenViewSettings" />
+>>>>>>> branch 'master' of https://github.com/plaiasuandrei/rtltest-.git
 		</semantic:filter>
 		<semantic:group>
 			<semantic:GroupSelect id="group" selectedKey="{masterView>/groupBy}" change="onGroup">
+<<<<<<< HEAD
 				<core:Item xmlns:core="sap.ui.core" id="masterGroupNone" text="{i18n>masterGroupNone}" key="None"/>
 				<core:Item xmlns:core="sap.ui.core" id="masterGroup1" text="{i18n>masterGroup1}" key="Wrbtr"/>
+=======
+				<core:Item xmlns:core="sap.ui.core" id="masterGroupNone" text="{i18n>masterGroupNone}" key="None" />
+				<core:Item xmlns:core="sap.ui.core" id="masterGroup1" text="{i18n>masterGroup1}" key="Wrbtr" />
+>>>>>>> branch 'master' of https://github.com/plaiasuandrei/rtltest-.git
 			</semantic:GroupSelect>
 		</semantic:group>
 	</semantic:MasterPage>
