@@ -22,7 +22,9 @@
 		"sourceTemplate": {
 			"id": "sap.ui.ui5-template-plugin.2masterdetail",
 			"version": "1.38.3"
-		}
+		},
+		"resources": "resources.json",
+		"ach": "ach"
 	},
 	"sap.ui": {
 		"technology": "UI5",
