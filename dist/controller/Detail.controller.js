@@ -83,29 +83,30 @@ sap.ui.define([
 				oViewModel.setProperty("/lineItemListTitle", sTitle);
 			}
 		},
+		
 
 		/* =========================================================== */
 		/* begin: internal methods                                     */
 		/* =========================================================== */
 
+			/**
+			 * Binds the view to the object path and expands the aggregated line items.
+			 * @function
+			 * @param {sap.ui.base.Event} oEvent pattern match event in route 'object'
+			 * @private
+			 */
+			_onObjectMatched : function (oEvent) {
+				var sObjectId =  oEvent.getParameter("arguments").objectId;
+				var sItemId =  oEvent.getParameter("arguments").itemId;
+				this.getModel().metadataLoaded().then( function() {
+					var sObjectPath = this.getModel().createKey("ocrInvoiceSet", {
+						Document :  sObjectId,
+						Buzei	: sItemId
+					});
+					this._bindView("/" + sObjectPath);
+				}.bind(this));
+			},
 
-		/**
-		 * Binds the view to the object path and expands the aggregated line items.
-		 * @function
-		 * @param {sap.ui.base.Event} oEvent pattern match event in route 'object'
-		 * @private
-		 */
-		_onObjectMatched: function(oEvent) {
-			var sObjectId = oEvent.getParameter("arguments").objectId;
-			var sItemId = oEvent.getParameter("arguments").itemId;
-			this.getModel().metadataLoaded().then(function() {
-				var sObjectPath = this.getModel().createKey("ocrInvoiceSet", {
-					Document: sObjectId,
-					Buzei: sItemId
-				});
-				this._bindView("/" + sObjectPath);
-			}.bind(this));
-		},
 
 		/**
 		 * Sets the item count on the search icon tab filter

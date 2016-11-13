@@ -1,0 +1,36 @@
+{
+    "application": {
+        "id": "",
+        "title": "RTLTest2 - 13Nov",
+        "description": "testing",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#RTLTest2-Display",
+        "navigationComponentName": "rtl",
+        "intentSemanticObject": "RTLTest2",
+        "intentAction": "Display",
+        "html5ApplicationName": "rtltest2",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "52508e4a-881b-49bc-873c-159d72cd34f6"
+        ],
+        "contentPackages": [
+            "156a4b18-809b-4407-b0ed-dd24668e87c8"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "DynamicTile",
+        "title": "RTL app test 13 nov",
+        "subtitle": "",
+        "searchKeywords": "RTL app test 13 nov,",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "/sap/fiori/rtltest2/odata/SAP/ZZOCR_INOICE_ALLOCATION_Srv/ocrInvoiceSet/$count",
+        "refreshInterval": "50",
+        "displayNumberUnit": "ocrInvoice"
+    }
+}

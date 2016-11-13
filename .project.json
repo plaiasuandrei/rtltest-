@@ -12,7 +12,8 @@
     "excludedFiles": [
       "test.html"
     ],
-    "buildRequired": true
+    "buildRequired": false,
+    "lastBuildDateTime": "Sun, 13 Nov 2016 15:51:06 GMT"
   },
   "dataBinding": {
     "/webapp/view/App.view.xml": {
@@ -71,5 +72,10 @@
       "xml": "fioriXmlAnalysis",
       "js": "fioriJsValidator"
     }
+  },
+  "hcpdeploy": {
+    "account": "s0007787233trial",
+    "name": "rtltest2",
+    "lastVersionWeTriedToDeploy": "1.0.1"
   }
 }

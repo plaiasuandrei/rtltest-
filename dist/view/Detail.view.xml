@@ -1,9 +1,7 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" controllerName="rtl.controller.Detail">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
-		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
-			<ObjectHeader id="objectHeader" title="{RdVendorName}" number="{ path: 'Wrbtr', formatter: '.formatter.currencyValue' }"
-				numberUnit="{Waers}" visible="true">
+			<ObjectHeader id="objectHeader" title="{RdVendorName}" number="{ path: 'Wrbtr', formatter: '.formatter.currencyValue' }" numberUnit="{Waers}" visible="true">
 				<attributes>
 					<ObjectAttribute text="{Sgtxt}" active="false" id="__attribute6"/>
 				</attributes>
@@ -17,32 +15,38 @@
 									<ObjectAttribute text="{/#ocrInvoice/Bukrs/@sap:label}: {Bukrs}" active="false" id="__attribute6_copy"/>
 									<ObjectAttribute active="false" id="__attribute4" text="{/#ocrInvoice/Ebeln/@sap:label}: {Ebeln}"/>
 									<ObjectAttribute text="{/#ocrInvoice/PsPosid/@sap:label}: {PsPosid}" active="false" id="__attribute7"/>
-									<ObjectAttribute xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" text="{/#ocrInvoice/Kostl/@sap:label}: {Kostl}"
-										active="false" id="__attribute3"/>
+									<ObjectAttribute xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" text="{/#ocrInvoice/Kostl/@sap:label}: {Kostl}" active="false" id="__attribute3"/>
 								</attributes>
 							</ObjectHeader>
 						</content>
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarAttach" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}"></IconTabFilter>
+					<IconTabFilter id="iconTabBarAttach" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}"/>
 					<IconTabFilter text="Open" count="{detailView>/count}" icon="sap-icon://task" iconColor="Critical" id="searchFilter">
 						<content>
-							<Bar id="__bar0"/>
-							<SearchField xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" width="100%" placeholder="Search" id="__field0"
-								/>
+							<Bar id="__bar0">
+							    <contentRight>
+							        <sap.ui.layout:HorizontalLayout xmlns:sap.ui.layout="sap.ui.layout" id="__layout1">
+							            <sap.ui.layout:content>
+							                <Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="Global search:   " id="__text22_copy"/>
+							                <Switch xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" id="__switch0"/>
+							            </sap.ui.layout:content>
+							        </sap.ui.layout:HorizontalLayout>
+							    </contentRight>
+							<contentLeft>
+							    <sap.ui.core:Icon xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" src="sap-icon://message-information" size="2em" id="__icon0"/>
+							</contentLeft>
+							</Bar>
+							<SearchField xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" width="100%" placeholder="Search" id="__field0"/>
 							<List noDataText="Drop list items here" id="__list1" items="{ocrInvoiceLSet}" updateFinished="onUpdateFinished">
 								<items>
 									<CustomListItem counter="0" id="__item9" type="DetailAndActive">
 										<content>
 											<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="__layout0">
 												<sap.ui.layout:content>
-													<Text xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" maxLines="2" id="__text106"
-														text="{/#ocrInvoice/Ebeln/@sap:label}:{Ebelp}"/>
-													<Text xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" maxLines="2" id="__text95"
-														text="{/#ocrInvoice/Hkont/@sap:label}"/>
-													<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="No text specified"
-														maxLines="2" id="__text106_copy"/>
-													<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="No text specified"
-														maxLines="2" id="__text106_copy2"/>
+													<Text xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" maxLines="2" id="__text106" text="{/#ocrInvoice/Ebeln/@sap:label}:{Ebelp}"/>
+													<Text xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" maxLines="2" id="__text95" text="{/#ocrInvoice/Hkont/@sap:label}"/>
+													<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="No text specified" maxLines="2" id="__text106_copy"/>
+													<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="No text specified" maxLines="2" id="__text106_copy2"/>
 												</sap.ui.layout:content>
 											</sap.ui.layout:VerticalLayout>
 										</content>
