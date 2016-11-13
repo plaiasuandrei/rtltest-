@@ -83,6 +83,7 @@ sap.ui.define([
 				oViewModel.setProperty("/lineItemListTitle", sTitle);
 			}
 		},
+		
 
 		/* =========================================================== */
 		/* begin: internal methods                                     */
