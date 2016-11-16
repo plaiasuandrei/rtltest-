@@ -1,12 +1,12 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" controllerName="rtl.controller.Detail">
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
-			<ObjectHeader id="objectHeader" title="{RdVendorName}" number="{ path: 'Wrbtr', formatter: '.formatter.currencyValue' }" numberUnit="{Waers}" visible="true">
+			<ObjectHeader id="detailObjectHeader" title="{RdVendorName}" number="{ path: 'Wrbtr', formatter: '.formatter.currencyValue' }" numberUnit="{Waers}" visible="{detailView>/isDetailObjectHeaderVisisble}" titleLevel="Auto" condensed="true">
 				<attributes>
 					<ObjectAttribute text="{Sgtxt}" active="false" id="__attribute6"/>
 				</attributes>
 			</ObjectHeader>
-			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" select="onTabSelect">
 				<items>
 					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
 						<content>
@@ -20,21 +20,28 @@
 							</ObjectHeader>
 						</content>
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarAttach" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}"/>
-					<IconTabFilter text="Open" count="{detailView>/count}" icon="sap-icon://task" iconColor="Critical" id="searchFilter">
+					<IconTabFilter id="iconTabBarAttach" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}" count="1">
+						<content>
+							<List noDataText="Drop list items here" id="AttachmentList" inset="true" showSeparators="None" items="{/ocrInvoiceSet}">
+								<items>
+									<StandardListItem type="Navigation" counter="0" title="List Item 1" description="Description text" icon="{parts : [{path : 'pdf'}], formatter : 'model.formatter.formatAttachmentIcon'}" id="AttachmentListItems" press="onAttachment" iconInset="false"/></items>
+							</List>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter count="{detailView>/count}" icon="sap-icon://search" iconColor="Negative" id="searchFilter">
 						<content>
 							<Bar id="__bar0">
-							    <contentRight>
-							        <sap.ui.layout:HorizontalLayout xmlns:sap.ui.layout="sap.ui.layout" id="__layout1">
-							            <sap.ui.layout:content>
-							                <Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="Global search:   " id="__text22_copy"/>
-							                <Switch xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" id="__switch0"/>
-							            </sap.ui.layout:content>
-							        </sap.ui.layout:HorizontalLayout>
-							    </contentRight>
-							<contentLeft>
-							    <sap.ui.core:Icon xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" src="sap-icon://message-information" size="2em" id="__icon0"/>
-							</contentLeft>
+								<contentRight>
+									<sap.ui.layout:HorizontalLayout xmlns:sap.ui.layout="sap.ui.layout" id="__layout1">
+										<sap.ui.layout:content>
+											<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="Global search: " id="__text22_copy"/>
+											<Switch xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" id="__switch0"/>
+										</sap.ui.layout:content>
+									</sap.ui.layout:HorizontalLayout>
+								</contentRight>
+								<contentLeft>
+									<sap.ui.core:Icon xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" src="sap-icon://message-information" size="2em" id="__icon0"/>
+								</contentLeft>
 							</Bar>
 							<SearchField xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" width="100%" placeholder="Search" id="__field0"/>
 							<List noDataText="Drop list items here" id="__list1" items="{ocrInvoiceLSet}" updateFinished="onUpdateFinished">
@@ -54,6 +61,20 @@
 								</items>
 							</List>
 						</content>
+					</IconTabFilter>
+					<IconTabFilter count="10" icon="sap-icon://sys-cancel-2" iconColor="Critical" id="rejectFilter">
+					    <content>
+					        <ComboBox selectedItem="null" value="List Item 1" xmlns:sap.ui.core="sap.ui.core" id="RejectionCodeBox" placeholder="Select rejection reason" width="100%" selectionChange="onRejectionReassign">
+					            <items>
+					                <sap.ui.core:ListItem text="Item is not for me" key="item1" id="__item0"/>
+					                <sap.ui.core:ListItem text="Reassign item" key="item2" id="__item1"/></items>
+					        </ComboBox>
+					        <SearchField width="100%" placeholder="Search" id="__field2"/>
+					        <List noDataText="Drop list items here" id="__list2" items="{/ocrInvoiceSet}">
+					            <items>
+					                <StandardListItem type="Navigation" counter="0" title="Employee1" description="Description text" icon="sap-icon://picture" id="__item3"/></items>
+					        </List>
+					    </content>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
@@ -84,5 +105,8 @@
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
+	<semantic:saveAction>
+	    <semantic:SaveAction id="__action0"/>
+	</semantic:saveAction>
 	</semantic:DetailPage>
 </mvc:View>

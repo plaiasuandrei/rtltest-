@@ -25,6 +25,9 @@ sap.ui.define([
 			 * @public
 			 */
 			onInit : function () {
+				//set default count mode of odata service to inline
+				
+
 				// Control state model
 				var oList = this.byId("list"),
 					oViewModel = this._createViewModel(),

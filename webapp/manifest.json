@@ -15,7 +15,8 @@
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
+					"localUri": "localService/metadata.xml",
+					"defaultCountMode": "sap.ui.model.odata.CountMode.None"
 				}
 			}
 		},
@@ -77,6 +78,7 @@
 			"": {
 				"dataSource": "mainService",
 				"preload": true
+				
 			}
 		},
 		"routing": {
@@ -94,24 +96,21 @@
 				},
 				"async": true
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "master",
-					"target": [
-						"object",
-						"master"
-					]
-				},
-				{
-					"pattern": "ocrInvoiceHSet/{objectId}/{itemId}",
-					"name": "object",
-					"target": [
-						"master",
-						"object"
-					]
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": [
+					"object",
+					"master"
+				]
+			}, {
+				"pattern": "ocrInvoiceHSet/{objectId}/{itemId}",
+				"name": "object",
+				"target": [
+					"master",
+					"object"
+				]
+			}],
 			"targets": {
 				"master": {
 					"viewName": "Master",
