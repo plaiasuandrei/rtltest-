@@ -15,7 +15,8 @@
                 "type": "OData",
                 "settings": {
                     "odataVersion": "2.0",
-                    "localUri": "localService/metadata.xml"
+                    "localUri": "localService/metadata.xml",
+                    "defaultCountMode": "sap.ui.model.odata.CountMode.None"
                 }
             }
         },

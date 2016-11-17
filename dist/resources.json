@@ -10,9 +10,6 @@
             "name": "view/Master.view.xml"
         },
         {
-            "name": "view/CostElements.view.xml"
-        },
-        {
             "name": "view/DetailNoObjectsAvailable.view.xml"
         },
         {
@@ -69,9 +66,6 @@
         },
         {
             "name": "controller/ErrorHandler.js"
-        },
-        {
-            "name": "controller/CostElements.controller.js"
         },
         {
             "name": "controller/App.controller.js"

@@ -78,7 +78,6 @@
 			"": {
 				"dataSource": "mainService",
 				"preload": true
-				
 			}
 		},
 		"routing": {
@@ -96,21 +95,24 @@
 				},
 				"async": true
 			},
-			"routes": [{
-				"pattern": "",
-				"name": "master",
-				"target": [
-					"object",
-					"master"
-				]
-			}, {
-				"pattern": "ocrInvoiceHSet/{objectId}/{itemId}",
-				"name": "object",
-				"target": [
-					"master",
-					"object"
-				]
-			}],
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": [
+						"object",
+						"master"
+					]
+				},
+				{
+					"pattern": "ocrInvoiceHSet/{objectId}/{itemId}",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					]
+				}
+			],
 			"targets": {
 				"master": {
 					"viewName": "Master",

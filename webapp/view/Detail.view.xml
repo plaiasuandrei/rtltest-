@@ -62,18 +62,40 @@
 							</List>
 						</content>
 					</IconTabFilter>
-					<IconTabFilter count="10" icon="sap-icon://sys-cancel-2" iconColor="Critical" id="rejectFilter">
+					<IconTabFilter icon="sap-icon://sys-cancel-2" iconColor="Critical" id="rejectFilter">
 					    <content>
-					        <ComboBox selectedItem="null" value="List Item 1" xmlns:sap.ui.core="sap.ui.core" id="RejectionCodeBox" placeholder="Select rejection reason" width="100%" selectionChange="onRejectionReassign">
+					        <RadioButtonGroup xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" width="100%" id="__group0" select="onRejectionReassign" selectedIndex="-1">
+					            <buttons>
+					                <RadioButton groupName="__group0" text="Send item back" id="__button0" textAlign="Right" width="100%"/>
+					                <RadioButton groupName="__group0" text="Reassign item to another employee" id="__button1"/>
+					                </buttons>
+					            
+					        </RadioButtonGroup>
+					        <Select xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" selectedItem="Element sap.ui.core.ListItem#__itemNotForMe" selectedItemId="__itemNotForMe" id="__select1" forceSelection="false" width="100%" change="onRejectionReassign" selectedKey="default">
 					            <items>
-					                <sap.ui.core:ListItem text="Item is not for me" key="item1" id="__item0"/>
-					                <sap.ui.core:ListItem text="Reassign item" key="item2" id="__item1"/></items>
-					        </ComboBox>
-					        <SearchField width="100%" placeholder="Search" id="__field2"/>
-					        <List noDataText="Drop list items here" id="__list2" items="{/ocrInvoiceSet}">
-					            <items>
-					                <StandardListItem type="Navigation" counter="0" title="Employee1" description="Description text" icon="sap-icon://picture" id="__item3"/></items>
-					        </List>
+					                <sap.ui.core:ListItem xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" text="Item is not for me" key="sendBackItem" id="__itemNotForMe"/>
+					                <sap.ui.core:ListItem xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" text="Reassign item" key="reassignItem" id="__itemReassign"/>
+					                <sap.ui.core:ListItem xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" text="Select Rejection Reason" id="__itemDefault" key="default"/>
+					                </items>
+					            
+					        </Select>
+					        <sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="__layout2" visible="{detailView>/displayEmployeeSearchField}">
+					            <sap.ui.layout:content>
+					                <SearchField xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" width="100%" placeholder="Search" id="__field2"/>
+					                <List xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" noDataText="Drop list items here" id="__list2" items="{/ocrInvoiceSet}">
+					                    <items>
+					                        <StandardListItem type="Navigation" counter="0" title="Employee1" description="Description text" icon="sap-icon://picture" id="__item3_copy-__list2-0"/>
+					                        
+					                    </items>
+					                    
+					                </List>
+					            </sap.ui.layout:content>
+					        </sap.ui.layout:VerticalLayout>
+					        <sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="__layout3" visible="{detailView>/displayRejectionConfirmButton}">
+					        <sap.ui.layout:content>
+					            <Button text="Confirm Rejection Code" width="100%" id="__button2" type="Reject"/>
+					        </sap.ui.layout:content>
+					        </sap.ui.layout:VerticalLayout>
 					    </content>
 					</IconTabFilter>
 				</items>

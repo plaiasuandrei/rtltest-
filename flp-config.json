@@ -1,8 +1,8 @@
 {
     "application": {
         "id": "",
-        "title": "RTLTest2 - 13Nov",
-        "description": "testing",
+        "title": "RTLTest2",
+        "description": "RTLTest2",
         "type": "SAP_UI5_Component",
         "componentUrl": "/",
         "appUrl": "#RTLTest2-Display",
@@ -22,15 +22,14 @@
         "categories": []
     },
     "tile": {
-        "type": "DynamicTile",
-        "title": "RTL app test 13 nov",
+        "type": "StaticTile",
+        "title": "VIA",
         "subtitle": "",
-        "searchKeywords": "RTL app test 13 nov,",
+        "searchKeywords": "VIA,",
         "displayIconUrl": "sap-icon://approvals",
         "displayInfoText": "",
         "size": "1x1",
-        "serviceURL": "/sap/fiori/rtltest2/odata/SAP/ZZOCR_INOICE_ALLOCATION_Srv/ocrInvoiceSet/$count",
-        "refreshInterval": "50",
-        "displayNumberUnit": "ocrInvoice"
+        "serviceURL": "",
+        "refreshInterval": ""
     }
 }

@@ -1,3 +1,0 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="rtl.controller.CostElements">
-<Title text="Title" width="100%" id="__title0" textAlign="Left"/>
-</mvc:View>

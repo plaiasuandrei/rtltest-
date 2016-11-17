@@ -12,8 +12,8 @@
     "excludedFiles": [
       "test.html"
     ],
-    "buildRequired": true,
-    "lastBuildDateTime": "Sun, 13 Nov 2016 15:51:06 GMT"
+    "buildRequired": false,
+    "lastBuildDateTime": "Wed, 16 Nov 2016 23:06:02 GMT"
   },
   "dataBinding": {
     "/webapp/view/App.view.xml": {
@@ -76,6 +76,6 @@
   "hcpdeploy": {
     "account": "s0007787233trial",
     "name": "rtltest2",
-    "lastVersionWeTriedToDeploy": "1.0.1"
+    "lastVersionWeTriedToDeploy": "1.0.4"
   }
 }
