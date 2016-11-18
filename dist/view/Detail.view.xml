@@ -1,7 +1,9 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" controllerName="rtl.controller.Detail">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
-			<ObjectHeader id="detailObjectHeader" title="{RdVendorName}" number="{ path: 'Wrbtr', formatter: '.formatter.currencyValue' }" numberUnit="{Waers}" visible="{detailView>/isDetailObjectHeaderVisisble}" titleLevel="Auto" condensed="true">
+			<ObjectHeader id="detailObjectHeader" title="{RdVendorName}" number="{ path: 'Wrbtr', formatter: '.formatter.currencyValue' }"
+				numberUnit="{Waers}" visible="{detailView>/isDetailObjectHeaderVisisble}" condensed="true">
 				<attributes>
 					<ObjectAttribute text="{Sgtxt}" active="false" id="__attribute6"/>
 				</attributes>
@@ -15,7 +17,8 @@
 									<ObjectAttribute text="{/#ocrInvoice/Bukrs/@sap:label}: {Bukrs}" active="false" id="__attribute6_copy"/>
 									<ObjectAttribute active="false" id="__attribute4" text="{/#ocrInvoice/Ebeln/@sap:label}: {Ebeln}"/>
 									<ObjectAttribute text="{/#ocrInvoice/PsPosid/@sap:label}: {PsPosid}" active="false" id="__attribute7"/>
-									<ObjectAttribute xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" text="{/#ocrInvoice/Kostl/@sap:label}: {Kostl}" active="false" id="__attribute3"/>
+									<ObjectAttribute xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" text="{/#ocrInvoice/Kostl/@sap:label}: {Kostl}"
+										active="false" id="__attribute3"/>
 								</attributes>
 							</ObjectHeader>
 						</content>
@@ -24,7 +27,10 @@
 						<content>
 							<List noDataText="Drop list items here" id="AttachmentList" inset="true" showSeparators="None" items="{/ocrInvoiceSet}">
 								<items>
-									<StandardListItem type="Navigation" counter="0" title="List Item 1" description="Description text" icon="{parts : [{path : 'pdf'}], formatter : 'model.formatter.formatAttachmentIcon'}" id="AttachmentListItems" press="onAttachment" iconInset="false"/></items>
+									<StandardListItem type="Navigation" counter="0" title="List Item 1" description="Description text"
+										icon="{parts : [{path : 'pdf'}], formatter : 'model.formatter.formatAttachmentIcon'}" id="AttachmentListItems" press="onAttachment"
+										iconInset="false"/>
+								</items>
 							</List>
 						</content>
 					</IconTabFilter>
@@ -34,13 +40,15 @@
 								<contentRight>
 									<sap.ui.layout:HorizontalLayout xmlns:sap.ui.layout="sap.ui.layout" id="__layout1">
 										<sap.ui.layout:content>
-											<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="Global search: " id="__text22_copy"/>
+											<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="Global search: "
+												id="__text22_copy"/>
 											<Switch xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" id="__switch0"/>
 										</sap.ui.layout:content>
 									</sap.ui.layout:HorizontalLayout>
 								</contentRight>
 								<contentLeft>
-									<sap.ui.core:Icon xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" src="sap-icon://message-information" size="2em" id="__icon0"/>
+									<sap.ui.core:Icon xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+										xmlns:sap.ui.core="sap.ui.core" src="sap-icon://message-information" size="2em" id="__icon0"/>
 								</contentLeft>
 							</Bar>
 							<SearchField xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" width="100%" placeholder="Search" id="__field0"/>
@@ -50,10 +58,14 @@
 										<content>
 											<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="__layout0">
 												<sap.ui.layout:content>
-													<Text xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" maxLines="2" id="__text106" text="{/#ocrInvoice/Ebeln/@sap:label}:{Ebelp}"/>
-													<Text xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" maxLines="2" id="__text95" text="{/#ocrInvoice/Hkont/@sap:label}"/>
-													<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="No text specified" maxLines="2" id="__text106_copy"/>
-													<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="No text specified" maxLines="2" id="__text106_copy2"/>
+													<Text xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" maxLines="2" id="__text106"
+														text="{/#ocrInvoice/Ebeln/@sap:label}:{Ebelp}"/>
+													<Text xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" maxLines="2" id="__text95"
+														text="{/#ocrInvoice/Hkont/@sap:label}"/>
+													<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="No text specified"
+														maxLines="2" id="__text106_copy"/>
+													<Text xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" text="No text specified"
+														maxLines="2" id="__text106_copy2"/>
 												</sap.ui.layout:content>
 											</sap.ui.layout:VerticalLayout>
 										</content>
@@ -63,40 +75,46 @@
 						</content>
 					</IconTabFilter>
 					<IconTabFilter icon="sap-icon://sys-cancel-2" iconColor="Critical" id="rejectFilter">
-					    <content>
-					        <RadioButtonGroup xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" width="100%" id="__group0" select="onRejectionReassign" selectedIndex="-1">
-					            <buttons>
-					                <RadioButton groupName="__group0" text="Send item back" id="__button0" textAlign="Right" width="100%"/>
-					                <RadioButton groupName="__group0" text="Reassign item to another employee" id="__button1"/>
-					                </buttons>
-					            
-					        </RadioButtonGroup>
-					        <Select xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" selectedItem="Element sap.ui.core.ListItem#__itemNotForMe" selectedItemId="__itemNotForMe" id="__select1" forceSelection="false" width="100%" change="onRejectionReassign" selectedKey="default">
-					            <items>
-					                <sap.ui.core:ListItem xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" text="Item is not for me" key="sendBackItem" id="__itemNotForMe"/>
-					                <sap.ui.core:ListItem xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" text="Reassign item" key="reassignItem" id="__itemReassign"/>
-					                <sap.ui.core:ListItem xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core" text="Select Rejection Reason" id="__itemDefault" key="default"/>
-					                </items>
-					            
-					        </Select>
-					        <sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="__layout2" visible="{detailView>/displayEmployeeSearchField}">
-					            <sap.ui.layout:content>
-					                <SearchField xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" width="100%" placeholder="Search" id="__field2"/>
-					                <List xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" noDataText="Drop list items here" id="__list2" items="{/ocrInvoiceSet}">
-					                    <items>
-					                        <StandardListItem type="Navigation" counter="0" title="Employee1" description="Description text" icon="sap-icon://picture" id="__item3_copy-__list2-0"/>
-					                        
-					                    </items>
-					                    
-					                </List>
-					            </sap.ui.layout:content>
-					        </sap.ui.layout:VerticalLayout>
-					        <sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="__layout3" visible="{detailView>/displayRejectionConfirmButton}">
-					        <sap.ui.layout:content>
-					            <Button text="Confirm Rejection Code" width="100%" id="__button2" type="Reject"/>
-					        </sap.ui.layout:content>
-					        </sap.ui.layout:VerticalLayout>
-					    </content>
+						<content>
+							<RadioButtonGroup xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" width="100%" id="__group0"
+								select="onRejectionReassign" selectedIndex="-1">
+								<buttons>
+									<RadioButton groupName="__group0" text="Send item back" id="__button0" textAlign="Right" width="100%"/>
+									<RadioButton groupName="__group0" text="Reassign item to another employee" id="__button1"/>
+								</buttons>
+							</RadioButtonGroup>
+							<Select xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core"
+								id="__select1" forceSelection="false"
+								width="100%" change="onRejectionReassign" selectedKey="default">
+								<items>
+									<sap.ui.core:ListItem xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core"
+										text="Item is not for me" key="sendBackItem" id="__itemNotForMe"/>
+									<sap.ui.core:ListItem xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core"
+										text="Reassign item" key="reassignItem" id="__itemReassign"/>
+									<sap.ui.core:ListItem xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.core="sap.ui.core"
+										text="Select Rejection Reason" id="__itemDefault" key="default"/>
+								</items>
+							</Select>
+							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="__layout2"
+								visible="{detailView>/displayEmployeeSearchField}">
+								<sap.ui.layout:content>
+									<SearchField xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" width="100%" placeholder="Search" id="__field2"/>
+									<List xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns="sap.m" noDataText="Drop list items here" id="__list2"
+										items="{/ocrInvoiceSet}">
+										<items>
+											<StandardListItem type="Navigation" counter="0" title="Employee1" description="Description text" icon="sap-icon://picture"
+												id="__item3_copy-__list2-0"/>
+										</items>
+									</List>
+								</sap.ui.layout:content>
+							</sap.ui.layout:VerticalLayout>
+							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="__layout3"
+								visible="{detailView>/displayRejectionConfirmButton}">
+								<sap.ui.layout:content>
+									<Button text="Confirm Rejection Code" width="100%" id="__button2" type="Reject"/>
+								</sap.ui.layout:content>
+							</sap.ui.layout:VerticalLayout>
+						</content>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
@@ -127,8 +145,8 @@
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
-	<semantic:saveAction>
-	    <semantic:SaveAction id="__action0"/>
-	</semantic:saveAction>
+		<semantic:saveAction>
+			<semantic:SaveAction id="__action0"/>
+		</semantic:saveAction>
 	</semantic:DetailPage>
 </mvc:View>

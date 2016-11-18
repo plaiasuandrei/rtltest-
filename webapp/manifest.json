@@ -16,7 +16,7 @@
 				"settings": {
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml",
-					"defaultCountMode": "sap.ui.model.odata.CountMode.None"
+					"defaultCountMode": "Inline"
 				}
 			}
 		},
@@ -76,6 +76,11 @@
 				}
 			},
 			"": {
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "Default",
+					"defaultCountMode": "Inline"
+				},
 				"dataSource": "mainService",
 				"preload": true
 			}

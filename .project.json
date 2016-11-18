@@ -12,13 +12,10 @@
     "excludedFiles": [
       "test.html"
     ],
-    "buildRequired": false,
+    "buildRequired": true,
     "lastBuildDateTime": "Wed, 16 Nov 2016 23:06:02 GMT"
   },
   "dataBinding": {
-    "/webapp/view/App.view.xml": {
-      "entitySet": "UNBINDKEY"
-    },
     "/webapp/view/NotFound.view.xml": {
       "entitySet": "UNBINDKEY"
     },
