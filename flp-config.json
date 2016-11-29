@@ -1,15 +1,14 @@
 {
     "application": {
         "id": "",
-        "title": "RTLTest2",
-        "description": "RTLTest2",
+        "title": "VIM",
         "type": "SAP_UI5_Component",
         "componentUrl": "/",
-        "appUrl": "#RTLTest2-Display",
+        "appUrl": "#VIM-Display",
         "navigationComponentName": "rtl",
-        "intentSemanticObject": "RTLTest2",
+        "intentSemanticObject": "VIM",
         "intentAction": "Display",
-        "html5ApplicationName": "rtltest2",
+        "html5ApplicationName": "vim",
         "HCPParentApplicationName": ""
     },
     "assignment": {
@@ -22,14 +21,15 @@
         "categories": []
     },
     "tile": {
-        "type": "StaticTile",
-        "title": "VIA",
-        "subtitle": "",
-        "searchKeywords": "VIA,",
+        "type": "DynamicTile",
+        "title": "VIM",
+        "subtitle": "28Nov",
+        "searchKeywords": "VIM,28Nov",
         "displayIconUrl": "sap-icon://approvals",
         "displayInfoText": "",
         "size": "1x1",
-        "serviceURL": "",
-        "refreshInterval": ""
+        "serviceURL": "/sap/fiori/vim/odata/SAP/ZZOCR_INOICE_ALLOCATION_Srv/ocrInvoiceSet/$count",
+        "refreshInterval": "100",
+        "displayNumberUnit": "ocrInvoice"
     }
 }

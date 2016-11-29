@@ -13,7 +13,7 @@
       "test.html"
     ],
     "buildRequired": true,
-    "lastBuildDateTime": "Wed, 16 Nov 2016 23:06:02 GMT"
+    "lastBuildDateTime": "Mon, 28 Nov 2016 07:36:05 GMT"
   },
   "dataBinding": {
     "/webapp/view/NotFound.view.xml": {
@@ -41,7 +41,7 @@
     {
       "templateId": "ui5template.basicSAPUI5ApplicationComponent",
       "templateVersion": "1.4.0",
-      "dateTimeStamp": "Fri, 11 Nov 2016 14:59:31 GMT"
+      "dateTimeStamp": "Sun, 20 Nov 2016 23:15:32 GMT"
     }
   ],
   "translation": {
@@ -72,7 +72,15 @@
   },
   "hcpdeploy": {
     "account": "s0007787233trial",
-    "name": "rtltest2",
-    "lastVersionWeTriedToDeploy": "1.0.4"
+    "name": "vim",
+    "lastVersionWeTriedToDeploy": "1.0.0"
+  },
+  "hybrid": {
+    "FacadeConfig": {
+      "cordova-plugin-device-orientation": false,
+      "accelerometer": {},
+      "compass": {},
+      "bFacade": true
+    }
   }
 }

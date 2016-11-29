@@ -110,7 +110,12 @@
 					]
 				},
 				{
-					"pattern": "ocrInvoiceHSet/{objectId}/{itemId}",
+					"pattern": "helpPage",
+					"name": "helpPage",
+					"target": "helpPage"
+				},
+				{
+					"pattern": "ocrInvoiceHSet/{objectId}",
 					"name": "object",
 					"target": [
 						"master",
@@ -129,6 +134,11 @@
 					"viewName": "Detail",
 					"viewId": "detail",
 					"viewLevel": 2
+				},
+				"helpPage": {
+					"viewName": "helpPage",
+					"viewId": "helpPage",
+					"viewLevel": 3
 				},
 				"detailObjectNotFound": {
 					"viewName": "DetailObjectNotFound",

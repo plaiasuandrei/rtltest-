@@ -16,7 +16,7 @@
                 "settings": {
                     "odataVersion": "2.0",
                     "localUri": "localService/metadata.xml",
-                    "defaultCountMode": "sap.ui.model.odata.CountMode.None"
+                    "defaultCountMode": "Inline"
                 }
             }
         },
@@ -76,6 +76,11 @@
                 }
             },
             "": {
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "Default",
+                    "defaultCountMode": "Inline"
+                },
                 "dataSource": "mainService",
                 "preload": true
             }
@@ -105,7 +110,12 @@
                     ]
                 },
                 {
-                    "pattern": "ocrInvoiceHSet/{objectId}/{itemId}",
+                    "pattern": "helpPage",
+                    "name": "helpPage",
+                    "target": "helpPage"
+                },
+                {
+                    "pattern": "ocrInvoiceHSet/{objectId}",
                     "name": "object",
                     "target": [
                         "master",
@@ -124,6 +134,11 @@
                     "viewName": "Detail",
                     "viewId": "detail",
                     "viewLevel": 2
+                },
+                "helpPage": {
+                    "viewName": "helpPage",
+                    "viewId": "helpPage",
+                    "viewLevel": 3
                 },
                 "detailObjectNotFound": {
                     "viewName": "DetailObjectNotFound",

@@ -1,0 +1,7 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="rtl.controller.helpPage">
+<sap.m.semantic:SemanticPage xmlns:sap.m.semantic="sap.m.semantic" title="Help Page" id="__page0" showNavButton="true" navButtonPress="onNavBack">
+    <sap.m.semantic:content>
+        <Text id="__area0" text="Some meaningful text describing the 2 search scenarios: PO search and Cost element search. /n/n maybe include some data on rejection as well. "/>
+    </sap.m.semantic:content>
+</sap.m.semantic:SemanticPage>
+</mvc:View>

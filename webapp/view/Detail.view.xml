@@ -1,120 +1,445 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="rtl.controller.Detail">
-	<semantic:DetailPage xmlns:semantic="sap.m.semantic" title="{i18n>detailTitle}" id="page" busyIndicatorDelay="{detailView>/delay}" busy="{detailView>/busy}" showNavButton="{device>/system/phone}" navButtonPress="onNavBack">
+	<semantic:DetailPage xmlns:semantic="sap.m.semantic" title="{i18n>detailTitle}" id="page" showSubHeader="false"
+		busyIndicatorDelay="{detailView>/delay}" busy="{detailView>/busy}" showNavButton="{device>/system/phone}" navButtonPress="onNavBack">
 		<semantic:content>
-			<ObjectHeader xmlns="sap.m" title="{RdVendorName}" id="detailObjectHeader" visible="{detailView>/isDetailObjectHeaderVisisble}" condensed="true" numberUnit="{Waers}" number="{ path: 'Wrbtr', formatter: '.formatter.currencyValue' }">
+			<ObjectHeader xmlns="sap.m" title="{RdVendorName}" id="detailObjectHeader" visible="{detailView>/isDetailObjectHeaderVisisble}"
+				numberUnit="{Waers}" number="{ path: 'Wrbtr', formatter: '.formatter.currencyValue' }">
 				<attributes>
-					<ObjectAttribute id="__attribute6" text="{Sgtxt}" active="false" />
+					<ObjectAttribute id="__attribute6" text="{Sgtxt}" active="false"/>
 				</attributes>
 			</ObjectHeader>
 			<IconTabBar xmlns="sap.m" id="iconTabBar" class="sapUiResponsiveContentPadding" select="onTabSelect">
 				<items>
 					<IconTabFilter id="iconTabBarFilter1" tooltip="{i18n>detailIconTabBarInfo}" icon="sap-icon://hint">
 						<content>
-							<ObjectHeader title="{i18n>itemOverviewTitle}" id="objectHeader_copy">
+							<ObjectHeader title="{Ebeln} {i18n>itemOverviewTitle}" id="objectHeader_copy" visible="false">
 								<attributes>
-									<ObjectAttribute id="__attribute6_copy" text="{/#ocrInvoice/Bukrs/@sap:label}: {Bukrs}" active="false" />
-									<ObjectAttribute id="__attribute4" text="{/#ocrInvoice/Ebeln/@sap:label}: {Ebeln}" active="false" />
-									<ObjectAttribute id="__attribute7" text="{/#ocrInvoice/PsPosid/@sap:label}: {PsPosid}" active="false" />
-									<ObjectAttribute id="__attribute3" text="{/#ocrInvoice/Kostl/@sap:label}: {Kostl}" active="false" />
+									<ObjectAttribute id="__attribute6_copy" text="{/#ocrInvoice/Bukrs/@sap:label}: {Bukrs}" active="false"/>
+									<ObjectAttribute id="__attribute4" text="{/#ocrInvoice/Ebeln/@sap:label}: {Ebeln}" active="false"/>
+									<ObjectAttribute id="__attribute7" text="{/#ocrInvoice/PsPosid/@sap:label}: {PsPosid}" active="false"/>
+									<ObjectAttribute id="__attribute3" text="{/#ocrInvoice/Kostl/@sap:label}: {Kostl}" active="false"/>
+									<ObjectAttribute id="__attribute10" text="{/#ocrInvoice/Hkont/@sap:label}: {Hkont}"/>
 								</attributes>
 							</ObjectHeader>
+							<sap.m:Table xmlns:sap.m="sap.m" id="ocrInvoiceLTable" items="{ocrInvoiceLSet}"
+								noDataText="Drop column list items here and columns in the area above">
+								<sap.m:items>
+									<sap.m:ColumnListItem>
+										<sap.m:cells>
+											<!--quantity and unit-->
+											<sap.m:Text text="{Quantity} {Meins}"/>
+											<!--item short text-->
+											<sap.m:Text text="{Sgtxt}"/>
+											<!--item cost center-->
+											<sap.m:Text text="{Kostl} {KOSTLTEXT}"/>
+											<!--item cost center description-->
+											<!--<sap.m:Text text="{KOSTLTEXT}" />-->
+											<!--WBS Element-->
+											<sap.m:Text text="{PsPosid} {WBSTEXT}"/>
+											<!--WBS element description-->
+											<!--<sap.m:Text text="wbsdescription" />-->
+											<!--GL account-->
+											<sap.m:Text text="{Hkont} {GLTEXT}"/>
+											<!--GL account description-->
+											<!--<sap.m:Text text="value" id="__text20"/>-->
+											<!--value-->
+											<sap.m:Text id="__text21" text="{Wrbtr} {Waers}"/>
+										</sap.m:cells>
+									</sap.m:ColumnListItem>
+								</sap.m:items>
+								<sap.m:columns>
+									<sap.m:Column>
+										<sap.m:header>
+											<sap.m:Text text="Quantity"/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--item short text-->
+									<sap.m:Column id="__column0">
+										<sap.m:header>
+											<sap.m:Text id="__label0" text="Description"/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--item cost center-->
+									<sap.m:Column id="__column1" minScreenWidth="Small" demandPopin="true">
+										<sap.m:header>
+											<sap.m:Text id="__label4" text="Cost center"/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--item cost center description-->
+									<!--<sap.m:Column xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.m="sap.m" id="__colum8n1" demandPopin="true" minScreenWidth="Small">-->
+									<!--<sap.m:header>-->
+									<!--<sap.m:Text text="{/#ocrInvoiceL/Kostl/@sap:label}" id="__6label4"/>-->
+									<!--</sap.m:header>-->
+									<!--</sap.m:Column>-->
+									<!--WBS Element-->
+									<sap.m:Column id="__column2" minScreenWidth="Small" demandPopin="true">
+										<sap.m:header>
+											<sap.m:Text id="__label5" text="WBS"/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--WBS element description-->
+									<!--<sap.m:Column id="__column3" demandPopin="true" minScreenWidth="Small">
+										<sap.m:header>
+											<sap.m:Text text="BS element description" id="__label45"/>
+										</sap.m:header>
+									</sap.m:Column>-->
+									<!--GL account-->
+									<sap.m:Column id="__colum4" minScreenWidth="Small" demandPopin="true">
+										<sap.m:header>
+											<sap.m:Text text="G/L "/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--GL account description-->
+									<!--<sap.m:Column id="__column42" demandPopin="true" minScreenWidth="Small">
+										<sap.m:header>
+											<sap.m:Text text="gldescription" id="__label7"/>
+										</sap.m:header>
+									</sap.m:Column>-->
+									<!--value-->
+									<sap.m:Column id="__colum52">
+										<sap.m:header>
+											<sap.m:Text id="__label8" text="Value"/>
+										</sap.m:header>
+									</sap.m:Column>
+								</sap.m:columns>
+								<sap.m:headerToolbar>
+									<sap.m:Toolbar id="__toolbar1" width="100%">
+										<sap.m:content>
+											<sap.m:Title id="__title0" text="Items Overview" width="100%"/>
+										</sap.m:content>
+									</sap.m:Toolbar>
+								</sap.m:headerToolbar>
+							</sap.m:Table>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter1_copy" tooltip="{i18n>detailIconTabBarInfo}" icon="sap-icon://hint">
+						<content>
+							<ObjectHeader title="{i18n>itemOverviewTitle}" id="objectHeader_copy2" visible="false">
+								<attributes>
+									<ObjectAttribute id="__attribute21" text="{/#ocrInvoice/Bukrs/@sap:label}: {Bukrs}" active="false"/>
+									<ObjectAttribute id="__attribute4_copy" text="{/#ocrInvoice/Ebeln/@sap:label}: {Ebeln}" active="false"/>
+									<ObjectAttribute id="__attribute7_copy" text="{/#ocrInvoice/PsPosid/@sap:label}: {PsPosid}" active="false"/>
+									<ObjectAttribute id="__attribute3_copy" text="{/#ocrInvoice/Kostl/@sap:label}: {Kostl}" active="false"/>
+									<ObjectAttribute id="__attribute10_copy" text="{/#ocrInvoice/Hkont/@sap:label}: {Hkont}"/>
+								</attributes>
+							</ObjectHeader>
+							<sap.m:Table xmlns:sap.m="sap.m" id="ocrInvoiceLTable_copy" items="{ocrInvoiceLSet}"
+								noDataText="Drop column list items here and columns in the area above">
+								<sap.m:items>
+									<sap.m:ColumnListItem id="__item1_copy-ocrInvoiceLTable_copy-0" type="Navigation" press="handleResponsivePopoverPress">
+										<sap.m:cells>
+											<!--quntity and unit-->
+											<sap.m:Text text="{Quantity} {Meins}"/>
+											<!--item short text-->
+											<sap.m:Text text="{Sgtxt}"/>
+											<!--item cost center-->
+											<sap.m:Text text="{Kostl} {KOSTLTEXT}"/>
+											<!--item cost center description-->
+											<!--<sap.m:Text text="{KOSTLTEXT}" />-->
+											<!--WBS Element-->
+											<sap.m:Text text="{PsPosid} {WBSTEXT}"/>
+											<!--WBS element description-->
+											<!--<sap.m:Text text="wbsdescription" />-->
+											<!--GL account-->
+											<sap.m:Text text="{Hkont} {GLTEXT}"/>
+											<!--GL account description-->
+											<!--<sap.m:Text text="value" id="__text20"/>-->
+											<!--value-->
+											<sap.m:Text text="{Wrbtr} {Waers}"/>
+										</sap.m:cells>
+									</sap.m:ColumnListItem>
+								</sap.m:items>
+								<sap.m:columns>
+									<sap.m:Column minScreenWidth="Small">
+										<sap.m:header>
+											<sap.m:Text text="Quantity"/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--item short text-->
+									<sap.m:Column id="__column0_copy">
+										<sap.m:header>
+											<sap.m:Text id="__label0_copy" text="Description"/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--item cost center-->
+									<sap.m:Column id="__column1_copy" minScreenWidth="Small">
+										<sap.m:header>
+											<sap.m:Text id="__label4_copy" text="Cost center"/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--item cost center description-->
+									<!--<sap.m:Column xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.m="sap.m" id="__colum8n1_copy" minScreenWidth="Small">
+										<sap.m:header>
+											<sap.m:Text text="{/#ocrInvoiceL/Kostl/@sap:label}" id="__6label4_copy"/>
+										</sap.m:header>
+									</sap.m:Column>-->
+									<!--WBS Element-->
+									<sap.m:Column id="__column2_copy" minScreenWidth="Small">
+										<sap.m:header>
+											<sap.m:Text id="__label5_copy" text="WBS"/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--WBS element description-->
+									<!--<sap.m:Column id="__column3_copy" minScreenWidth="Small">
+										<sap.m:header>
+											<sap.m:Text text="BS element description" id="__label45_copy"/>
+										</sap.m:header>
+									</sap.m:Column>-->
+									<!--GL account-->
+									<sap.m:Column id="__colum4_copy" minScreenWidth="Small">
+										<sap.m:header>
+											<sap.m:Text id="__text44" text="G/L"/>
+										</sap.m:header>
+									</sap.m:Column>
+									<!--GL account description-->
+									<!--<sap.m:Column id="__column42_copy" minScreenWidth="Small">
+										<sap.m:header>
+											<sap.m:Text text="gldescription" id="__label7_copy"/>
+										</sap.m:header>
+									</sap.m:Column>-->
+									<!--value-->
+									<sap.m:Column id="__colum52_copy">
+										<sap.m:header>
+											<sap.m:Text id="__label8_copy" text="Value" textAlign="Right"/>
+										</sap.m:header>
+									</sap.m:Column>
+								</sap.m:columns>
+								<sap.m:headerToolbar>
+									<sap.m:Toolbar id="__toolbar1_copy" width="100%">
+										<sap.m:content>
+											<sap.m:Title id="__title0_copy" text="Items Overview" width="100%"/>
+										</sap.m:content>
+									</sap.m:Toolbar>
+								</sap.m:headerToolbar>
+							</sap.m:Table>
 						</content>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarAttach" tooltip="{i18n>detailIconTabBarAttachments}" icon="sap-icon://attachment" count="1">
 						<content>
-							<List id="AttachmentList" items="{/ocrInvoiceSet}" showSeparators="None" inset="true" noDataText="Drop list items here">
+							<List id="AttachmentList" items="{/ocrInvoiceSet}" noDataText="Drop list items here" showSeparators="None" inset="true">
 								<items>
-									<StandardListItem title="List Item 1" id="AttachmentListItems" type="Navigation" description="Description text" icon="{parts : [{path : 'pdf'}], formatter : 'model.formatter.formatAttachmentIcon'}" press="onAttachment" iconInset="false" counter="0" /></items>
+									<StandardListItem title="List Item 1" id="AttachmentListItems" type="Navigation" description="Description text"
+										icon="{parts : [{path : 'pdf'}], formatter : 'model.formatter.formatAttachmentIcon'}" press="onAttachment" iconInset="false" counter="0"/></items>
 							</List>
 						</content>
 					</IconTabFilter>
-					<IconTabFilter id="searchFilter" icon="sap-icon://search" count="{detailView>/count}" iconColor="Negative">
+					<IconTabFilter id="searchFilter" icon="sap-icon://search" key="searchPO" count="{detailView>/count}" iconColor="Negative">
 						<content>
 							<Bar id="__bar0">
 								<contentRight>
 									<sap.ui.layout:HorizontalLayout xmlns:sap.ui.layout="sap.ui.layout" id="__layout1">
 										<sap.ui.layout:content>
-											<Text id="__text22_copy" text="Search for PO" />
-											<Switch id="__switch0" state="true" change="onSwitchChange" />
+											<Text id="__text22_copy" text="{i18n>searchTabSwitchButton}"/>
+											<Switch id="__switch0" state="true" change="onSwitchChange"/>
 										</sap.ui.layout:content>
 									</sap.ui.layout:HorizontalLayout>
 								</contentRight>
 								<contentLeft>
-									<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" id="__icon0" size="2em" src="sap-icon://message-information" />
+									<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" id="__icon0" size="2em" tooltip="Help Page" press="onInfoButtonPress"
+										src="sap-icon://message-information"/>
 								</contentLeft>
 							</Bar>
-							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" id="searchPOLayout" width="100%" visible="{detailView>/displaySearchPOLayout}">
+							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" id="searchPOLayout" width="100%"
+								visible="{detailView>/displaySearchPOLayout}">
 								<sap.ui.layout:content>
-									<SearchField id="__field0" placeholder="Search" width="100%" />
-									<List id="__list1" items="{ocrInvoiceLSet}" noDataText="Drop list items here" updateFinished="onUpdateFinished">
+									<SearchField id="__field0" placeholder="Search" width="100%" liveChange="onPOSearch"/>
+									<List id="POItemList" items="{/searchPOSet}" mode="SingleSelectLeft" noDataText="Drop list items here" growingScrollToLoad="true"
+										growing="true" updateFinished="onUpdateFinished">
 										<items>
-											<CustomListItem id="__item9_copy-__list1-0" type="DetailAndActive" counter="0">
+											<CustomListItem type="DetailAndActive" press="onPOItemSelection" counter="0">
 												<content>
 													<sap.ui.layout:VerticalLayout id="__layout0_copy-__list1-0" width="100%">
 														<sap.ui.layout:content>
-															<Text id="__text106___list1" text="{/#ocrInvoice/Ebeln/@sap:label}:{Ebelp}" maxLines="2" />
-															<Text id="__text95___list10" text="{/#ocrInvoice/Hkont/@sap:label}" maxLines="2" />
-															<Text id="__text106___list8" text="{/#ocrInvoice/Kostl/@sap:label}" maxLines="2" />
-															<Text id="__text106_item4" text="{/#ocrInvoice/PsPosid/@sap:label}" maxLines="2" />
+															<Text id="__text106___list1" text="{/#ocrInvoice/Ebeln/@sap:label}: {EBELN}" maxLines="2"/>
+															<Text id="__text95___list10" text="{/#ocrInvoice/Hkont/@sap:label}: {HKONT}" visible="{= ${HKONT}.length !== 0 }" maxLines="2"/>
+															<Text id="__text106___list8" text="{/#ocrInvoice/Kostl/@sap:label}: {KOSTL} - {KOSTLTEXT}" visible="{= ${KOSTL}.length !== 0 }" maxLines="2"/>
+															<Text id="__text106_item4" text="{/#ocrInvoice/PsPosid/@sap:label}:{PsPosid}" visible="{= ${PsPosid}.length !== 0 }" maxLines="2"/>
 														</sap.ui.layout:content>
 													</sap.ui.layout:VerticalLayout>
+													<sap.m:Table xmlns:sap.m="sap.m" items="{PODetailsSet}" visible="false"
+														noDataText="Drop column list items here and columns in the area above">
+														<sap.m:items>
+															<sap.m:ColumnListItem type="Navigation" press="handleResponsivePopoverPress">
+																<sap.m:cells>
+																	<!--item short text-->
+																	<sap.m:Text text="{Sgtxt}"/>
+																	<!--item cost center-->
+																	<sap.m:Text text="{Kostl}"/>
+																	<!--item cost center description-->
+																	<sap.m:Text text="{KOSTLTEXT}"/>
+																	<!--WBS Element-->
+																	<sap.m:Text text="{PsPosid}"/>
+																	<!--WBS element description-->
+																	<sap.m:Text text="{WBSTEXT}"/>
+																	<!--GL account-->
+																	<sap.m:Text text="gl accoun"/>
+																	<!--GL account description-->
+																	<sap.m:Text text="value"/>
+																	<!--value-->
+																	<sap.m:Text text="2347.00 Eur" textAlign="Right"/>
+																</sap.m:cells>
+															</sap.m:ColumnListItem>
+														</sap.m:items>
+														<sap.m:columns>
+															<!--item short text-->
+															<sap.m:Column>
+																<sap.m:header>
+																	<sap.m:Text text="{/#ocrInvoiceL/Sgtxt/@sap:label}"/>
+																</sap.m:header>
+															</sap.m:Column>
+															<!--item cost center-->
+															<sap.m:Column minScreenWidth="Small">
+																<sap.m:header>
+																	<sap.m:Text text="{/#ocrInvoiceL/Kostl/@sap:label}"/>
+																</sap.m:header>
+															</sap.m:Column>
+															<!--item cost center description-->
+															<sap.m:Column minScreenWidth="Small">
+																<sap.m:header>
+																	<sap.m:Text text="{/#ocrInvoiceL/Kostl/@sap:label}"/>
+																</sap.m:header>
+															</sap.m:Column>
+															<!--WBS Element-->
+															<sap.m:Column minScreenWidth="Small">
+																<sap.m:header>
+																	<sap.m:Text text="{/#ocrInvoiceL/PsPosid/@sap:label}"/>
+																</sap.m:header>
+															</sap.m:Column>
+															<!--WBS element description-->
+															<sap.m:Column minScreenWidth="Small">
+																<sap.m:header>
+																	<sap.m:Text text="BS element description"/>
+																</sap.m:header>
+															</sap.m:Column>
+															<!--GL account-->
+															<sap.m:Column minScreenWidth="Small">
+																<sap.m:header>
+																	<sap.m:Text text="gl"/>
+																</sap.m:header>
+															</sap.m:Column>
+															<!--GL account description-->
+															<sap.m:Column minScreenWidth="Small">
+																<sap.m:header>
+																	<sap.m:Text text="gldescription"/>
+																</sap.m:header>
+															</sap.m:Column>
+															<!--value-->
+															<sap.m:Column>
+																<sap.m:header>
+																	<sap.m:Text text="value" textAlign="Right"/>
+																</sap.m:header>
+															</sap.m:Column>
+														</sap.m:columns>
+														<sap.m:headerToolbar>
+															<sap.m:Toolbar width="100%">
+																<sap.m:content>
+																	<sap.m:Title text="Items Overview" width="100%"/>
+																</sap.m:content>
+															</sap.m:Toolbar>
+														</sap.m:headerToolbar>
+													</sap.m:Table>
 												</content>
 											</CustomListItem>
 										</items>
 									</List>
 								</sap.ui.layout:content>
 							</sap.ui.layout:VerticalLayout>
-							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" id="searchCostElementsLayout" width="100%" visible="{detailView>/displaySearchCostElementsLayout}">
+							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" id="searchCostElementsLayout" width="100%"
+								visible="{detailView>/displaySearchCostElementsLayout}">
 								<sap.ui.layout:content>
-								    
-								    
-								    
-								    
-									<SearchField id="CostCenterSearch" placeholder="Recherche" width="100%" search="onSearch" suggestionItems="{/ZzwdKostSet}" suggest="onCostCenterSuggest" enableSuggestions="true">
-										<suggestionItems>
-											<SuggestionItem description="{path:'KOSTL'} - {path:'MCTXT'}" />
-										</suggestionItems>
-									</SearchField>
-								
+									<!--<Label xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" id="__label0"-->
+									<!--	text="{/#ocrInvoice/Kostl/@sap:label}" width="100%"/> -->
+									<!--<SearchField xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m"-->
+									<!--	id="CostCenterSearch" width="100%" enableSuggestions="true" suggest="onCostCenterSuggest" suggestionItems="{/ZzwdKostSet}" search="onSearch"-->
+									<!--	value="{Kostl}" placeholder="Search for cost center">-->
+									<!--	<suggestionItems>-->
+									<!--		<SuggestionItem id="__item1-CostCenterSearch-0-CostCenterSearch-0" description="{path:'KOSTL'} - {path:'MCTXT'}"/>-->
+									<!--	</suggestionItems> -->
+									<!--</SearchField> -->
+									<!--<Label xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" id="__label0_copy"-->
+									<!--	text="/n{/#ocrInvoice/PsPosid/@sap:label}" width="100%"/>-->
+									<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" id="__form0" layout="ResponsiveGridLayout" editable="true">
+										<sap.ui.layout.form:content>
+											<Label id="__label1" text="{/#ocrInvoice/Kostl/@sap:label}" required="true"/>
+											<Input id="inputCostCenter" placeholder="{i18n>CostCenterInputPlaceholder}" width="100%" suggestionItemSelected="onSuggestionSelected"
+												filterSuggests="false" startSuggestion="0" suggest="handleSuggestCostCenterInput" showSuggestion="true" suggestionItems="{/ZzwdKostSet}">
+												<suggestionItems>
+													<sap.ui.core:Item xmlns:sap.ui.core="sap.ui.core" id="costCenterInputSuggestionItem" text="{path:'KOSTL'} - {path:'MCTXT'}" key="{KOSTL}"
+														enabled="true"/>
+													<!--<SuggestionItem id="costCenterInputSuggestionItem" description="{path:'KOSTL'} - {path:'MCTXT'}"/>-->
+												</suggestionItems>
+											</Input>
+											<!--<SearchField xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" id="CostCenterSearch" width="100%" enableSuggestions="true" suggest="onCostCenterSuggest" suggestionItems="{/ZzwdKostSet}" search="onCostCenterSearch" value="{Kostl}" placeholder="Search for cost center">-->
+											<!--	<suggestionItems>-->
+											<!--		<SuggestionItem id="__item1-CostCenterSearch-0-CostCenterSearch-0" description="{path:'KOSTL'} - {path:'MCTXT'}"/>-->
+											<!--	</suggestionItems>-->
+											<!--</SearchField>-->
+											<Label id="__label2" text="{/#ocrInvoice/PsPosid/@sap:label}"/>
+											<!--<SearchField xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" id="WBSSearch" width="100%" enableSuggestions="true" suggest="onWBSSuggest" suggestionItems="{/ZzwdKostSet}" search="onSearch" value="{PsPosid}" placeholder="Search for WBS element">-->
+											<!--	<suggestionItems>-->
+											<!--		<SuggestionItem id="__item1-WBSSearch-0-WBSSearch-0" description="{path:'KOSTL'} - {path:'MCTXT'}"/>-->
+											<!--	</suggestionItems>-->
+											<!--</SearchField>-->
+											<Input id="inputWBS" placeholder="{i18n>WBSInputPlaceholder}" width="100%" suggestionItemSelected="onSuggestionSelected"
+												filterSuggests="false" startSuggestion="0" suggest="handleSuggestWBSInput" showSuggestion="true" suggestionItems="{/ZzwdKostSet}">
+												<suggestionItems>
+													<sap.ui.core:Item xmlns:sap.ui.core="sap.ui.core" id="WBSInputSuggestionItem" text="{path:'PsPosid'} - {path:'MCTXT'}" key="{PsPosid}"
+														enabled="true"/>
+												</suggestionItems>
+											</Input>
+											<Label id="__label3" text="{/#ocrInvoice/Hkont/@sap:label}"/>
+											<Input id="inputGLAccounts" placeholder="{i18n>GLSearchPlaceHolder}" width="100%" suggestionItemSelected="onSuggestionSelected"
+												filterSuggests="false" startSuggestion="0" suggest="handleSuggestWBSInput" showSuggestion="true" suggestionItems="{/ZzwdKostSet}">
+												<suggestionItems>
+													<sap.ui.core:Item xmlns:sap.ui.core="sap.ui.core" id="GLAccountInputSuggestionItem" text="{path:'HKONT'} - {path:'MCTXT'}" key="{HKONT}"
+														enabled="true"/>
+												</suggestionItems>
+											</Input>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
 								</sap.ui.layout:content>
 							</sap.ui.layout:VerticalLayout>
 						</content>
 					</IconTabFilter>
-					<IconTabFilter id="rejectFilter" icon="sap-icon://sys-cancel-2" iconColor="Critical">
+					<IconTabFilter id="rejectFilter" icon="sap-icon://sys-cancel-2" key="rejection" visible="{detailView>/showRejectionTab}"
+						iconColor="Critical">
 						<content>
-							<RadioButtonGroup id="__group0" width="100%" select="onRejectionReassign" selectedIndex="-1">
+							<RadioButtonGroup id="rejectionGroup" width="100%" select="onRejectionReassign" selectedIndex="-1">
 								<buttons>
-									<RadioButton id="__button0" text="Send item back" width="100%" groupName="__group0" textAlign="Right" />
-									<RadioButton id="__button1" text="Reassign item to another employee" groupName="__group0" />
+									<RadioButton id="__button0" text="Send item back" width="100%" textAlign="Right" groupName="__group0"/>
+									<RadioButton id="__button1" text="Reassign item to another employee" groupName="__group0"/>
 								</buttons>
 							</RadioButtonGroup>
-							<Select id="__select1" width="100%" change="onRejectionReassign" forceSelection="false" selectedKey="default">
+							<Select id="__select1" width="100%" visible="false" change="onRejectionReassign" forceSelection="false" selectedKey="default">
 								<items>
-									<sap.ui.core:ListItem xmlns:sap.ui.core="sap.ui.core" id="__itemNotForMe" text="Item is not for me" key="sendBackItem" />
-									<sap.ui.core:ListItem xmlns:sap.ui.core="sap.ui.core" id="__itemReassign" text="Reassign item" key="reassignItem" />
-									<sap.ui.core:ListItem xmlns:sap.ui.core="sap.ui.core" id="__itemDefault" text="Select Rejection Reason" key="default" />
+									<sap.ui.core:ListItem xmlns:sap.ui.core="sap.ui.core" id="__itemNotForMe" text="Item is not for me" key="sendBackItem"/>
+									<sap.ui.core:ListItem xmlns:sap.ui.core="sap.ui.core" id="__itemReassign" text="Reassign item" key="reassignItem"/>
+									<sap.ui.core:ListItem xmlns:sap.ui.core="sap.ui.core" id="__itemDefault" text="Select Rejection Reason" key="default"/>
 								</items>
 							</Select>
-							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" id="__layout2" width="100%" visible="{detailView>/displayEmployeeSearchField}">
+							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" id="__layout2" width="100%"
+								visible="{detailView>/displayEmployeeSearchField}">
 								<sap.ui.layout:content>
-									<SearchField id="__field2" placeholder="Search" width="100%" />
+									<SearchField id="__field2" placeholder="Search" width="100%"/>
 									<List id="__list2" items="{/ocrInvoiceSet}" noDataText="Drop list items here">
 										<items>
-											<StandardListItem title="Employee1" id="__item3_copy-__list2-0" type="Navigation" description="Description text" icon="sap-icon://picture" counter="0" />
+											<StandardListItem title="Employee1" id="__item3_copy-__list2-0" type="Navigation" description="Description text" icon="sap-icon://picture"
+												press="onEmployeeSelected" counter="0"/>
 										</items>
 									</List>
 								</sap.ui.layout:content>
 							</sap.ui.layout:VerticalLayout>
-							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" id="__layout3" width="100%" visible="{detailView>/displayRejectionConfirmButton}">
+							<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" id="__layout3" width="100%"
+								visible="{detailView>/displayRejectionConfirmButton}">
 								<sap.ui.layout:content>
-									<Button id="__button2" type="Reject" text="Confirm Rejection Code" width="100%" />
+									<Button id="__button2" type="Reject" text="Confirm Rejection Code" width="100%" visible="false"/>
 								</sap.ui.layout:content>
 							</sap.ui.layout:VerticalLayout>
 						</content>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
-			<!--			<Table id="lineItemsList" width="auto" items="{ocrInvoiceLSet}" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" visible="false">
+			<!--						<Table id="lineItemsList" width="auto" items="{ocrInvoiceLSet}" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" visible="true">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
 						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
@@ -132,17 +457,20 @@
 					<ColumnListItem>
 						<cells>
 							<ObjectIdentifier title="{Sgtxt}" text="{Buzei}"/>
-							<ObjectNumber number="{          path: 'Wrbtr',          formatter: '.formatter.currencyValue'         }" unit="{Waers}"/>
+							<ObjectNumber number="{Wrbtr }" unit="{Waers}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
 			</Table>-->
 		</semantic:content>
 		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress" />
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
-		<semantic:saveAction>
-			<semantic:SaveAction id="__action0" />
-		</semantic:saveAction>
+		<semantic:negativeAction>
+			<semantic:NegativeAction id="rejectButton" text="Reject" press="onRejectButtonPressed"/>
+		</semantic:negativeAction>
+		<semantic:positiveAction>
+			<semantic:PositiveAction id="__action4" text="Submit"/>
+		</semantic:positiveAction>
 	</semantic:DetailPage>
 </mvc:View>

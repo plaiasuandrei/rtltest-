@@ -1,6 +1,9 @@
 {
     "resources": [
         {
+            "name": "fioriHtmlRunner.html"
+        },
+        {
             "name": "manifest.json"
         },
         {
@@ -13,6 +16,9 @@
             "name": "view/DetailNoObjectsAvailable.view.xml"
         },
         {
+            "name": "view/helpPage.view.xml"
+        },
+        {
             "name": "view/ViewSettingsDialog.fragment.xml"
         },
         {
@@ -23,6 +29,9 @@
         },
         {
             "name": "view/DetailObjectNotFound.view.xml"
+        },
+        {
+            "name": "fragments/OCRLinePopover.fragment.xml"
         },
         {
             "name": "test.html"
@@ -53,7 +62,13 @@
             "name": "model/formatter.js"
         },
         {
+            "name": "model/ponumbers.json"
+        },
+        {
             "name": "model/GroupSortState.js"
+        },
+        {
+            "name": "model/types/searchFieldType.js"
         },
         {
             "name": "controller/ListSelector.js"
@@ -69,6 +84,9 @@
         },
         {
             "name": "controller/App.controller.js"
+        },
+        {
+            "name": "controller/helpPage.controller.js"
         },
         {
             "name": "controller/Detail.controller.js"
@@ -153,6 +171,9 @@
         },
         {
             "name": "test/testsuite.qunit.html"
+        },
+        {
+            "name": "extended_runnable_file.html"
         },
         {
             "name": "Component-preload.js",
