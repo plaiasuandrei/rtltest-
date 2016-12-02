@@ -5,27 +5,27 @@
 				<sap.ui.layout.form:formContainers>
 					<sap.ui.layout.form:FormContainer title="Item: {Ebelp} - {Wrbtr} {Waers}">
 						<sap.ui.layout.form:formElements>
-							<sap.ui.layout.form:FormElement label="Description">
+							<sap.ui.layout.form:FormElement label="Description"  visible="{= ${Sgtxt}.length > 0 }">
 								<sap.ui.layout.form:fields>
 									<Text text="{Sgtxt}" width="100%"/>
 								</sap.ui.layout.form:fields>
 							</sap.ui.layout.form:FormElement>
-							<sap.ui.layout.form:FormElement label="CostCenter">
+							<sap.ui.layout.form:FormElement label="CostCenter" visible="{= ${Kostl}.length > 0 }">
 								<sap.ui.layout.form:fields>
 									<Text text="{Kostl}" width="100%"/>
 									<Text text="{KOSTLTEXT}" width="100%"/>
 								</sap.ui.layout.form:fields>
 							</sap.ui.layout.form:FormElement>
-							<sap.ui.layout.form:FormElement label="WBS Element">
+							<sap.ui.layout.form:FormElement label="WBS Element" visible="{= ${PsPosid}.length > 0 }">
 								<sap.ui.layout.form:fields>
 									<Text text="{PsPosid}" width="100%"/>
-									<Text text="wbs description" width="100%"/>
+									<Text text="{WBSTEXT}" width="100%"/>
 								</sap.ui.layout.form:fields>
 							</sap.ui.layout.form:FormElement>
-							<sap.ui.layout.form:FormElement label="G/L Account">
+							<sap.ui.layout.form:FormElement label="G/L Account" visible="{= ${Hkont}.length > 0 }">
 								<sap.ui.layout.form:fields>
-									<Text text="GL ID" width="100%"/>
-									<Text text="GL text" width="100%"/>
+									<Text text="{Hkont}" width="100%"/>
+									<Text text="{GLTEXT}" width="100%"/>
 								</sap.ui.layout.form:fields>
 							</sap.ui.layout.form:FormElement>
 						</sap.ui.layout.form:formElements>

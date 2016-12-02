@@ -7,7 +7,7 @@
 						<sap.ui.layout.form:formElements>
 							<sap.ui.layout.form:FormElement label="Description"  visible="{= ${Sgtxt}.length > 0 }">
 								<sap.ui.layout.form:fields>
-									<Text text="{Sgtxt}" width="100%"/>
+									<Text text="{Txz01}" width="100%"/>
 								</sap.ui.layout.form:fields>
 							</sap.ui.layout.form:FormElement>
 							<sap.ui.layout.form:FormElement label="CostCenter" visible="{= ${Kostl}.length > 0 }">

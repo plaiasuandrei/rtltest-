@@ -36,6 +36,40 @@ sap.ui.define([
 			}
 		},
 		
+		
+		displayPOitemsInfoTab: function (sPOPath) {
+		    if(sPOPath) {
+		        return true;
+		    }
+		    else {
+		        return false;
+		    }
+		},
+		
+		
+		
+		showIntoTabToolbarText: function (sPO) {
+		    
+		    if(sPO) {
+		        return true;
+		    }
+		    else {
+		        return false;
+		    }
+		    
+		},
+		
+		intoTabToolbarText: function (sPO) {
+		    var resourceBundle = this.getView().getModel("i18n").getResourceBundle();
+		    if(sPO) {
+		        return resourceBundle.getText("InfoTabPOListNotEmpty");
+		    }
+		    else {
+		        return resourceBundle.getText("InfoTabPOListEmpty");
+		    }
+		    
+		},
+		
 		formatAttachmentIcon: function(m) {
 			return sap.ca.ui.model.format.FormattingLibrary.formatAttachmentIcon(m);
 		}

@@ -1,0 +1,77 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core">
+	<CustomListItem xmlns="sap.m" press="onEmployeeSelected" counter="0">
+		<content>
+			<Toolbar width="100%" design="Info">
+				<content>
+					<Title text="Purchasing document: {Ebeln} - {BSARTTEXT}" width="100%" titleStyle="H3" level="H1"/>
+					<Title text="{Wrbtr} {Waers}" width="30%" textAlign="End" titleStyle="H3"/>
+				</content>
+			</Toolbar>
+			<sap.m:Table xmlns:sap.m="sap.m" items="{ocrInvoiceLSet}" noDataText="Drop column list items here and columns in the area above">
+				<sap.m:items>
+					<sap.m:ColumnListItem type="Active" press="handleResponsivePopoverPress">
+						<sap.m:cells>
+							<!--item short text-->
+							<sap.m:Text text="{Txz01}"/>
+							<!--value-->
+							<sap.m:Text text="{Wrbtr} {Waers}" textAlign="Right"/>
+							<!--quantity and unit-->
+							<sap.m:Text text="{Quantity} {Meins}"/>
+							<!--GL account-->
+							<sap.m:Text text="{Hkont} {GLTEXT}"/>
+							<!--WBS Element-->
+							<sap.m:Text text="{PsPosid} {WBSTEXT}"/>
+							<!--item cost center-->
+							<sap.m:Text text="{Kostl} {KOSTLTEXT}"/>
+						</sap.m:cells>
+					</sap.m:ColumnListItem>
+				</sap.m:items>
+				<sap.m:columns>
+					<!--item short text-->
+					<sap.m:Column>
+						<sap.m:header>
+							<sap.m:Text text="Description"/>
+						</sap.m:header>
+					</sap.m:Column>
+					<!--value-->
+					<sap.m:Column>
+						<sap.m:header>
+							<sap.m:Text text="Amount" textAlign="Right"/>
+						</sap.m:header>
+					</sap.m:Column>
+					<!--quantity-->
+					<sap.m:Column minScreenWidth="Small">
+						<sap.m:header>
+							<sap.m:Text text="Quantity"/>
+						</sap.m:header>
+					</sap.m:Column>
+					<!--GL account-->
+					<sap.m:Column minScreenWidth="Small">
+						<sap.m:header>
+							<sap.m:Text text="G/L"/>
+						</sap.m:header>
+					</sap.m:Column>
+					<!--WBS Element-->
+					<sap.m:Column minScreenWidth="Small">
+						<sap.m:header>
+							<sap.m:Text text="WBS"/>
+						</sap.m:header>
+					</sap.m:Column>
+					<!--item cost center-->
+					<sap.m:Column minScreenWidth="Small">
+						<sap.m:header>
+							<sap.m:Text text="Cost center"/>
+						</sap.m:header>
+					</sap.m:Column>
+				</sap.m:columns>
+				<!--<sap.m:headerToolbar>-->
+				<!--	<sap.m:Toolbar width="100%" >-->
+				<!--		<sap.m:content>-->
+				<!--			<sap.m:Title text="Items Overview" width="100%" titleStyle="H4" level="H2"/>-->
+				<!--		</sap.m:content>-->
+				<!--	</sap.m:Toolbar>-->
+				<!--</sap.m:headerToolbar>-->
+			</sap.m:Table>
+		</content>
+	</CustomListItem>
+</core:FragmentDefinition>

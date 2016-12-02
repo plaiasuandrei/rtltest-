@@ -13,7 +13,7 @@
       "test.html"
     ],
     "buildRequired": true,
-    "lastBuildDateTime": "Mon, 28 Nov 2016 07:36:05 GMT"
+    "lastBuildDateTime": "Tue, 29 Nov 2016 02:11:27 GMT"
   },
   "dataBinding": {
     "/webapp/view/NotFound.view.xml": {
@@ -72,8 +72,8 @@
   },
   "hcpdeploy": {
     "account": "s0007787233trial",
-    "name": "vim",
-    "lastVersionWeTriedToDeploy": "1.0.0"
+    "name": "rtltest2",
+    "lastVersionWeTriedToDeploy": "2.0"
   },
   "hybrid": {
     "FacadeConfig": {
